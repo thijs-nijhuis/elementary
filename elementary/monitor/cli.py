@@ -15,6 +15,7 @@ from elementary.monitor.debug import Debug
 from elementary.tracking.anonymous_tracking import AnonymousCommandLineTracking
 from elementary.utils import bucket_path
 from elementary.utils.ordered_yaml import OrderedYaml
+from elementary.utils.log import get_logger
 
 yaml = OrderedYaml()
 logger = get_logger(__name__)
