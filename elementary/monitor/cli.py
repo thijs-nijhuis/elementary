@@ -17,7 +17,7 @@ from elementary.utils import bucket_path
 from elementary.utils.ordered_yaml import OrderedYaml
 
 yaml = OrderedYaml()
-
+logger = get_logger(__name__)
 
 class Command:
     MONITOR = "monitor"
@@ -425,6 +425,7 @@ def report(
     """
     Generate a local observability report of your warehouse.
     """
+    logger.info("In pass_context")
     config = Config(
         config_dir,
         profiles_dir,
@@ -439,6 +440,8 @@ def report(
     anonymous_tracking.set_env("use_select", bool(select))
     try:
         selector_filter = SelectorFilter(config, anonymous_tracking, select)
+        logger.info(f"pass_context, update_dbt_package: {update_dbt_package} ")
+        logger.info(config)
         data_monitoring = DataMonitoringReport(
             config=config,
             tracking=anonymous_tracking,
