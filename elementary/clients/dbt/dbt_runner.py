@@ -275,6 +275,7 @@ class DbtRunner(BaseDbtRunner):
         packages_dir = os.path.join(
             self.project_dir, os.environ.get("DBT_PACKAGES_FOLDER", "dbt_packages")
         )
+        logger.info(f"_get_installed_packages_names: {packages_dir}")
         try:
             return [
                 name
