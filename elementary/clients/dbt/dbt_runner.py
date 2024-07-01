@@ -304,7 +304,9 @@ class DbtRunner(BaseDbtRunner):
         should_run_deps = False
 
         installed_package_names = set(self._get_installed_packages_names())
+        logger.info(f"installed_package_names: {installed_package_names}")
         required_package_names = set(self._get_required_packages_names())
+        logger.info(f"required_package_names: {required_package_names}")
         if not required_package_names.issubset(installed_package_names):
             logger.info("Installing packages for edr internal dbt package...")
             should_run_deps = True
