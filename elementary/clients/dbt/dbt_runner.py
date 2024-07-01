@@ -298,7 +298,7 @@ class DbtRunner(BaseDbtRunner):
         ]
 
     def _run_deps_if_needed(self):
-        print("In _run_deps_if_needed")
+        logger.info("In _run_deps_if_needed")
 
         
         if not os.path.exists(self.project_dir):
