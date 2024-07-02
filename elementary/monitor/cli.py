@@ -19,6 +19,7 @@ from elementary.utils.log import get_logger
 
 yaml = OrderedYaml()
 logger = get_logger(__name__)
+print(__name__)
 
 class Command:
     MONITOR = "monitor"
