@@ -133,7 +133,9 @@ class SelectorFilter:
         return data_monitoring_filter
 
     def _create_user_dbt_runner(self, config: Config) -> Optional[DbtRunner]:
+        logger.info("In _create_user_dbt_runner")
         if config.project_dir:
+            logger.info(f"In _create_user_dbt_runner, config_dir '{config.config_dir}', profiles_dir '{config.profiles_dir}', project_dir '{config.project_dir}'")
             return DbtRunner(
                 config.project_dir,
                 config.profiles_dir,

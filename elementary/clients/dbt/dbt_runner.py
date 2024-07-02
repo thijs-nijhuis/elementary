@@ -283,13 +283,17 @@ class DbtRunner(BaseDbtRunner):
                 if os.path.isdir(os.path.join(packages_dir, name))
             ]
         except FileNotFoundError:
+            logger.info("in except")
             return []
 
     def _get_required_packages_names(self):
+        logger.info(f"_get_required_packages_names: {self.project_dir}")
+
         packages_yaml_path = os.path.join(self.project_dir, "packages.yml")
         if not os.path.exists(packages_yaml_path):
             return []
 
+        logger.info(f"_get_required_packages_names2: {packages_yaml_path}")
         with open(packages_yaml_path) as packages_yaml_file:
             packages_data = yaml.safe_load(packages_yaml_file)
         return [
