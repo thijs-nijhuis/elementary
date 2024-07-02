@@ -437,6 +437,7 @@ def report(
         target_path,
         dbt_quoting=dbt_quoting,
         env=env,
+        run_dbt_deps_if_needed=False
     )
     logger.info(f"In pass_context 2, config_dir '{config_dir}', profiles_dir '{profiles_dir}', project_dir '{project_dir}', update_dbt_package '{update_dbt_package}'")
     anonymous_tracking = AnonymousCommandLineTracking(config)
