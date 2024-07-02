@@ -427,7 +427,7 @@ def report(
     """
     Generate a local observability report of your warehouse.
     """
-    logger.info("In pass_context")
+    logger.info(f"In pass_context 1, config_dir '{config_dir}', profiles_dir '{profiles_dir}', project_dir '{project_dir}', update_dbt_package '{update_dbt_package}'")
     config = Config(
         config_dir,
         profiles_dir,
@@ -438,9 +438,12 @@ def report(
         dbt_quoting=dbt_quoting,
         env=env,
     )
+    logger.info(f"In pass_context 2, config_dir '{config_dir}', profiles_dir '{profiles_dir}', project_dir '{project_dir}', update_dbt_package '{update_dbt_package}'")
     anonymous_tracking = AnonymousCommandLineTracking(config)
+    logger.info(f"In pass_context 3, config_dir '{config_dir}', profiles_dir '{profiles_dir}', project_dir '{project_dir}', update_dbt_package '{update_dbt_package}'")
     anonymous_tracking.set_env("use_select", bool(select))
     try:
+        logger.info(f"In pass_context 4, config_dir '{config_dir}', profiles_dir '{profiles_dir}', project_dir '{project_dir}', update_dbt_package '{update_dbt_package}'")
         selector_filter = SelectorFilter(config, anonymous_tracking, select)
         logger.info(f"pass_context, update_dbt_package: {update_dbt_package} ")
         logger.info(config)
